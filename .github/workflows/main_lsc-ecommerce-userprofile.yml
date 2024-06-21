@@ -49,18 +49,17 @@ jobs:
         with:
           name: .net-app
       
-     # - name: Login to Azure
-      #  uses: azure/login@v1
-      # with:
-      #    client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DA7A9251FD1B416C9BB0BC581C0108DC }}
-       #   tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9e33399e-5d42-4b0c-83d3-6cbf9fb4baf7 }}
-        #  subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_714bb664-1a6f-44e8-9df3-67d14320e32f }}
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+         tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9e33399e-5d42-4b0c-83d3-6cbf9fb4baf7 }}
+         subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_714bb664-1a6f-44e8-9df3-67d14320e32f }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'lsc-ecommerce-userprofile'
+          app-name: 'Model1'
           slot-name: 'Production'
           package: .
           
